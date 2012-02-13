@@ -3,7 +3,7 @@ module Rpg::Scenes
     scene_name :title
 
     def setup
-      @text = text "RPG!", :size => 90
+      @text = text "Welcome to RPG!", :size => 30
     end
 
     def register
