@@ -14,7 +14,7 @@ module Rpg
       @x, @y = x, y
     end
 
-    Absolute = Object.new.tap do |obj|
+    Root = Object.new.tap do |obj|
       obj.extend Positionable
       obj.pos 0, 0
     end

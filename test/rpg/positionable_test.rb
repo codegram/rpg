@@ -6,7 +6,7 @@ module Rpg
       @object = Class.new {
         include Positionable
         def initialize
-          @parent = Positionable::Absolute
+          @parent = Positionable::Root
           @x = 100
           @y = 200
         end
@@ -49,14 +49,14 @@ module Rpg
       end
     end
 
-    describe Positionable::Absolute do
+    describe Positionable::Root do
       before do
-        @absolute = Positionable::Absolute
+        @root = Positionable::Root
       end
 
       it 'is a toplevel positionable object' do
-        @absolute.x.must_equal 0
-        @absolute.y.must_equal 0
+        @root.x.must_equal 0
+        @root.y.must_equal 0
       end
     end
   end
