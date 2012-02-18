@@ -19,7 +19,7 @@ module Rpg::Scenes
         end
 
         menu.push "End" do
-          exit
+          exit(1)
         end
 
         menu.select(0)
@@ -33,7 +33,7 @@ module Rpg::Scenes
         @menu.down
       end
 
-      on :key_press, key(:spacebar) do
+      on :key_press, key(:a) do
         @menu.current_element.run
       end
     end
