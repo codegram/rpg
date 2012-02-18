@@ -4,6 +4,7 @@ module Rpg
       super "Awesome Game"
 
       Scenes::Title.bind(self)
+      Scenes::Title::Options.bind(self)
       push_scene :title
     end
 
