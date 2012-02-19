@@ -11,7 +11,7 @@ module Rpg::Scenes
       @menu = Rpg::Menu.new(self) do |menu|
         menu.pos(self.x + 100, self.y + 150)
         menu.push "Start" do
-          puts "start!"
+          push_scene :main_game
         end
 
         menu.push "Options" do
@@ -33,7 +33,7 @@ module Rpg::Scenes
         @menu.down
       end
 
-      on :key_press, key(:a) do
+      on :key_press, key(:return) do
         @menu.current_element.run
       end
     end
@@ -81,7 +81,7 @@ module Rpg::Scenes
           @menu.down
         end
 
-        on :key_press, key(:a) do
+        on :key_press, key(:return) do
           @menu.current_element.run
         end
       end
