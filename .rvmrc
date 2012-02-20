@@ -1,2 +1,0 @@
-rvm --create use rbx-head@rpg
-export RBXOPT="-X18"

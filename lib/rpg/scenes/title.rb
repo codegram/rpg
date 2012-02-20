@@ -3,6 +3,7 @@ module Rpg::Scenes
     scene_name :title
 
     include Rpg::Positionable
+    include Rpg::MenuKeys
 
     def setup
       @parent = Rpg::Positionable::Root
@@ -11,7 +12,7 @@ module Rpg::Scenes
       @menu = Rpg::Menu.new(self) do |menu|
         menu.pos(self.x + 100, self.y + 150)
         menu.push "Start" do
-          puts "start!"
+          push_scene :main_game
         end
 
         menu.push "Options" do
@@ -23,18 +24,9 @@ module Rpg::Scenes
         end
 
         menu.select(0)
-      end
 
-      on :key_press, key(:up) do
-        @menu.up
-      end
-
-      on :key_press, key(:down) do
-        @menu.down
-      end
-
-      on :key_press, key(:a) do
-        @menu.current_element.run
+        #from Rpg::MenuKeys module
+        menu_movement
       end
     end
 
@@ -52,6 +44,7 @@ module Rpg::Scenes
     class Options < Ray::Scene
       scene_name :options
       include Rpg::Positionable
+      include Rpg::MenuKeys
 
       def setup
         @parent = Rpg::Positionable::Root
@@ -73,17 +66,8 @@ module Rpg::Scenes
           menu.select(2)
         end
 
-        on :key_press, key(:up) do
-          @menu.up
-        end
-
-        on :key_press, key(:down) do
-          @menu.down
-        end
-
-        on :key_press, key(:a) do
-          @menu.current_element.run
-        end
+        #from Rpg::MenuKeys module
+        menu_movement
       end
 
       def register

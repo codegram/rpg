@@ -5,6 +5,7 @@ module Rpg
 
       Scenes::Title.bind(self)
       Scenes::Title::Options.bind(self)
+      Scenes::MainGame.bind(self)
       push_scene :title
     end
 
