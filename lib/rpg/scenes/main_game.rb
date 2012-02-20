@@ -11,7 +11,7 @@ module Rpg::Scenes
     def setup
       @half_size = window.size / 2
       @sky  = sprite path_of("../resources/space.png")
-      #@map  = Map.new path_of("../resources/map.txt")
+      @map  = Rpg::Map.new path_of("../resources/map.txt")
       @sprite = sprite path_of("../resources/sprite.png")
       @sprite.sheet_size = [4, 4]
       @camera = Ray::View.new @sprite.pos, window.size
