@@ -1,4 +1,4 @@
-module Rpg::SceneBasics
+module Rpg::GameSceneBasics
   include Rpg::InGameKeys
 
   def center_camera

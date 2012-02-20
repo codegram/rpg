@@ -2,7 +2,7 @@ module Rpg::Scenes
   class MainGame < Ray::Scene
     scene_name :main_game
 
-    include Rpg::SceneBasics
+    include Rpg::GameSceneBasics
 
     def path_of(res)
         File.expand_path File.join(File.dirname(__FILE__), res)
