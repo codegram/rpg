@@ -1,5 +1,6 @@
 require 'ray'
 require "rpg/positionable"
+require "rpg/key_actions"
 require "rpg/list"
 require "rpg/version"
 require "rpg/scenes/title"
