@@ -1,4 +1,4 @@
-module Rpg::KeyActions
+module Rpg::InGameKeys
   def in_game_options
     on :key_press, key(:escape) do
       run_scene :options
@@ -18,13 +18,7 @@ module Rpg::KeyActions
       end
     end
 
-    # Center camera
-    #camera_x = [[@sprite.x, @half_size.w].max, @map.max_x - @half_size.w].min
-    #camera_y = [[@sprite.y, @half_size.h].max, @map.max_y - @half_size.h].min
-    camera_x = [[@sprite.x, @half_size.w].max, @half_size.w].min
-    camera_y = [[@sprite.y, @half_size.h].max, @half_size.h].min
-
-    @camera.center = [camera_x, camera_y]
+    center_camera
   end
 
   def move_towards(dir)

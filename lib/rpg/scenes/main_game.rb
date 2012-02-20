@@ -2,7 +2,7 @@ module Rpg::Scenes
   class MainGame < Ray::Scene
     scene_name :main_game
 
-    include Rpg::KeyActions
+    include Rpg::SceneBasics
 
     def path_of(res)
         File.expand_path File.join(File.dirname(__FILE__), res)
@@ -17,24 +17,7 @@ module Rpg::Scenes
       @camera = Ray::View.new @sprite.pos, window.size
     end
 
-    def register
-      in_game_options
-    end
-
-    def render(win)
-      always
-      win.draw @sky
-
-      win.with_view @camera do # Apply scrolling
-        win.draw @sprite
-      end
-    end
-
     def clean_up
-    end
-
-    def always
-      movement
     end
   end
 end
