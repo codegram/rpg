@@ -14,13 +14,14 @@ module Rpg::Scenes
       @sprite.sheet_size = [4, 4]
       @camera = Ray::View.new @sprite.pos, window.size
       @text = text "Oh Man", :size => 30
-      basic_movement
     end
 
     def register
+      in_game_options
     end
 
     def render(win)
+      always
       win.draw @sky
       win.draw @text
 
@@ -32,18 +33,17 @@ module Rpg::Scenes
     def clean_up
     end
 
-    def basic_movement
-      on :key_press, key(:up) do
-        animations << sprite_animation(:from => [0, 3], :to => [4, 3],
-                                       :duration => 0.3).start(@sprite)
-        animations << translation(:of => [0, -32], :duration => 0.3).start(@sprite)
+    def always
+      movements
+    end
+
+    def in_game_options
+      on :key_press, key(:escape) do
+        run_scene :options
       end
-      on :key_press, key(:down) do
-        animations << sprite_animation(:from => [0, 0], :to => [4, 0],
-                                       :duration => 0.3).start(@sprite)
-        animations << translation(:of => [0, 32], :duration => 0.3).start(@sprite)
-      end
-      puts 'wtf'
+    end
+
+    def movements
       if animations.empty?
         if holding? :down
           animations << sprite_animation(:from => [0, 0], :to => [4, 0],
