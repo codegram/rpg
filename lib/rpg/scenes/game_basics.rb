@@ -1,5 +1,6 @@
 module Rpg::GameSceneBasics
   include Rpg::InGameKeys
+  include Rpg::AssetsHelper
 
   def center_camera
     camera_x = [[@sprite.x, @half_size.w].max, @map.max_x - @half_size.w].min
@@ -15,7 +16,7 @@ module Rpg::GameSceneBasics
   end
 
   def render(win)
-    always
+    move
     win.draw @sky
 
     win.with_view @camera do # Apply scrolling
@@ -23,9 +24,5 @@ module Rpg::GameSceneBasics
       @map.each_gem  { |gem|  win.draw gem.sprite }
       win.draw @sprite
     end
-  end
-
-  def always
-    movement
   end
 end

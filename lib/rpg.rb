@@ -1,4 +1,8 @@
 require 'ray'
+
+require 'rpg/assets_helper'
+require 'rpg/extensions/helper'
+
 require "rpg/positionable"
 require "rpg/key_actions/in_game"
 require "rpg/key_actions/menus"

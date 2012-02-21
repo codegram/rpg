@@ -5,7 +5,7 @@ module Rpg::InGameKeys
     end
   end
 
-  def movement
+  def move
     if animations.empty?
       if holding? :down
         move_towards :down

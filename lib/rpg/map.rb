@@ -2,12 +2,8 @@ module Rpg
   class CollectibleGem
     include Ray::Helper
 
-    def path_of(res)
-      File.expand_path File.join(File.dirname(__FILE__), res)
-    end
-
     def initialize(pos)
-      @sprite = Ray::Sprite.new path_of('resources/gem.png'), :at => pos
+      @sprite = Ray::Sprite.new path_of('gem.png'), :at => pos
       @sprite.origin = @sprite.image.size / 2
 
       @animation = rotation(:from => -30, :to => 30, :duration => 0.6)
@@ -38,15 +34,12 @@ module Rpg
   end
 
   class Map
-    def path_of(res)
-      File.expand_path File.join(File.dirname(__FILE__), res)
-    end
-
+    include Ray::Helper
     PartSize = 60
     TileSize = 50
 
     def initialize(file)
-      tileset  = path_of('resources/tileset.png')
+      tileset  = path_of('tileset.png')
       @tiles = {}
       @gems  = []
 
